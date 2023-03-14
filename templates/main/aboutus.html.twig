@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for perso in team %}
+        <div class="team">
+            <p><img src="{{ perso['picture'] }}" width="100px"></p>
+
+            <p>Prénom :
+                {{ perso['firstname'] == 'Fabien' ? "&#128151" : "" }}
+                {{ perso['firstname'] }}
+            </p>
+            <p>Don particulier :
+                {{ perso['creatorOf'] }}</p>
+            <p>Description :
+                {{ perso['description'] }}</p>
+            </p>
+            <p>Date de naissance : {{ perso['dateOfBirth'] | date("d-m-Y") }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+
+{% endblock %}

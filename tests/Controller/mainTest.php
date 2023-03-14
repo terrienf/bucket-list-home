@@ -4,14 +4,23 @@ namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class mainTest extends WebTestCase
+class MainTest extends WebTestCase
 {
-    public function testPageHome(): void
+    public function testPageAccueil(): void
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Hello World');
+        $this->assertSelectorTextContains('body', 'accueil');
+    }
+
+    public function testAboutUs(): void
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/aboutus');
+
+        $this->assertResponseIsSuccessful();
+        $this->assertCount(3, $crawler->filter('div.team'));
     }
 }
