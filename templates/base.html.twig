@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="icon" href="{{ asset('images/favicon.png') }}">
 
+
+
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
@@ -20,12 +22,13 @@
 <body>
 <header>
         <div class="container">
-            <p class="lead">Welcome to my BucketList.</p>
+            <p class="lead">Welcome to my BucketList</p>
             <div class="header-bar">
-                <h1 class="logo"><img src=" {{ asset('images/logobucket.png') }}" alt="logo" width="40px"></h1>
+                <h1 class="logo"><img src=" {{ asset('images/logobucket.png') }}" alt="logo" width="50px"></h1>
                 <ul class="slider-menu">
                     <li><a href="{{ path('main_index') }}">Home</a></li>
-                    <li>test</li>
+                    <li><a href="{{ path('main_aboutus') }}">About us</a></li>
+                    <li><a href="{{ path('liste') }}">Liste</a></li>
                 </ul>
             </div>
         </div>
@@ -34,6 +37,13 @@
 </header>
 
 {% block body %}{% endblock %}
+
+
 </body>
-<footer>{{ 'now' | date ('Y')}}</footer>
+{#<footer>{{ 'now' | date ('Y')}}</footer>#}
+<footer>
+    <div>
+        <p>{{ 'now' | date ('Y')}} - Terrien</p>
+    </div>
+
 </html>
